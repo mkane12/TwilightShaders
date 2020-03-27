@@ -20,4 +20,12 @@ public class twilight_twocolor : MonoBehaviour
     void Update()
     {
     }
+
+    // OnValidate() called when script is loaded or value cahnged in the Inspector
+    void OnValidate()
+    {
+        // ensure any changes made during runtime are reflected
+        gradient.SetColor("_Color0", bottomColor);
+        gradient.SetColor("_Color1", topColor);
+    }
 }

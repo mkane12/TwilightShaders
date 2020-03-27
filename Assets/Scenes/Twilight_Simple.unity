@@ -401,3 +401,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gradient: {fileID: 2100000, guid: decf0d46ceacca5418c875c20110ee2a, type: 2}
+  bottomColor:
+    serializedVersion: 2
+    rgba: 16816127
+  topColor:
+    serializedVersion: 2
+    rgba: 29439257
