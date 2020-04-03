@@ -62,8 +62,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\twilight_circle.cs" />
     <Compile Include="Assets\Scripts\twilight_time.cs" />
     <Compile Include="Assets\Scripts\twilight_twocolor.cs" />
+    <None Include="Assets\Shaders\Twilight-Circle.shader" />
     <None Include="Assets\Shaders\Twilight-2C.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/user1/Desktop/repo/TwilightShaderPractice/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

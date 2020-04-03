@@ -1,2 +1,9 @@
 Base path: 'C:/Program Files/Unity/Hub/Editor/2019.2.17f1/Editor/Data', plugins path 'C:/Program Files/Unity/Hub/Editor/2019.2.17f1/Editor/Data/PlaybackEngines'
 Cmd: initializeCompiler
+Cmd: preprocess
+  error: 1 plat 21 at (18): Unrecognized #pragma surface directive: Lambert
+  insize=1249 outsize=1259 ok=1
+Cmd: preprocess
+  error: 1 plat 21 at (19): Unrecognized #pragma surface directive: Lambert
+  error: 2 plat 21 at (39): Unexpected token ';'. Expected one of: ',' ')'
+  insize=1309 outsize=653 ok=0
