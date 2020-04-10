@@ -286,5 +286,6 @@
 /define:CSHARP_7_OR_LATER
 /define:CSHARP_7_3_OR_NEWER
 Assets\Scripts\twilight_circle.cs
+Assets\Scripts\twilight_clickCircle.cs
 Assets\Scripts\twilight_time.cs
 Assets\Scripts\twilight_twocolor.cs

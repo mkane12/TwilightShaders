@@ -288,7 +288,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -90}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -308,6 +308,8 @@ GameObject:
   - component: {fileID: 1738923077}
   - component: {fileID: 1738923081}
   - component: {fileID: 1738923082}
+  - component: {fileID: 1738923083}
+  - component: {fileID: 1738923084}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -346,7 +348,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: decf0d46ceacca5418c875c20110ee2a, type: 2}
+  - {fileID: 2100000, guid: 13b307bdce3580f4e807b0a8318c701f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -383,7 +385,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1738923076}
   m_LocalRotation: {x: -0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: -2.0944755, y: 2.160265, z: 26.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 1, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -396,7 +398,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1738923076}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef24b2ab67c8ee54e8ef58ea2f565d18, type: 3}
   m_Name: 
@@ -433,3 +435,42 @@ MonoBehaviour:
   topColor2:
     serializedVersion: 2
     rgba: 33545472
+--- !u!114 &1738923083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738923076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17c869ac8594d5049b5fdd7857fd1123, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gradient: {fileID: 2100000, guid: 13b307bdce3580f4e807b0a8318c701f, type: 2}
+  middleColor:
+    serializedVersion: 2
+    rgba: 16817663
+  outerColor:
+    serializedVersion: 2
+    rgba: 29439257
+--- !u!114 &1738923084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738923076}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 847e5b20b3ce31d4782ea954dce16eb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gradient: {fileID: 2100000, guid: 13b307bdce3580f4e807b0a8318c701f, type: 2}
+  middleColor:
+    serializedVersion: 2
+    rgba: 16817663
+  outerColor:
+    serializedVersion: 2
+    rgba: 29451801
+  clickPos: {x: 0.5, y: 0.5}
