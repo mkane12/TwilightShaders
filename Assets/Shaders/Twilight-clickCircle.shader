@@ -5,8 +5,9 @@ Shader "Custom/Twilight-clickCircle"
 	// Gradient shader between 2 colors with clicked position
 	Properties
     {
-        _Color0 ("Middle Color", Color) = (1,1,1,1)
-		_Color1 ("Outer Color", Color) = (1,1,1,1)
+        _Color0 ("Center Color", Color) = (1,1,1,1)
+		_Color1 ("Middle Color", Color) = (1,1,1,1)
+		_Color2 ("Outer Color", Color) = (1,1,1,1)
 		_Pos ("Click Position", Vector) = (0.5, 0.5, 0, 0)
     }
     SubShader
@@ -40,20 +41,29 @@ Shader "Custom/Twilight-clickCircle"
 				return o;
 			}
  
-			fixed4 _Color0, _Color1;
+			fixed4 _Color0, _Color1, _Color2;
 			float4 _Pos;
- 
+			
+			// 3 color shader adapted from https://answers.unity.com/questions/1108472/3-color-linear-gradient-shader.html
 			fixed4 frag (v2f i) : SV_Target // called once for each pixel
 			{
+				float t = length(i.texcoord - float2(_Pos.x, _Pos.y)) * 3;
+
+				fixed4 c = lerp(_Color0, _Color1, t);
+				c += lerp(_Color1, _Color2, t);
+				c.a = 1;
+				return c;
+
+
 				// t calculates distance from given uv coordinate to click point
 				//  t initially ranges from 0 to sqrt(2)/2 when center point is center of plane, 
 				//  so we standardize by multiplying by sqrt(2) = 1.41...
 				// length returns scalar length of Vector
 				//  in this case, absolute distance from click point to a given pixel
-				float t = length(i.texcoord - float2(_Pos.x, _Pos.y)) * 1.41421356237;
+				//float t = length(i.texcoord - float2(_Pos.x, _Pos.y)) * 1.41421356237/2;
 				
 				// returns _Color0 when t = 0; returns _Color1 when t = 1
-				return lerp(_Color0, _Color1, t);
+				//return lerp(_Color0, _Color1, t);
 			}
 			ENDCG
          }

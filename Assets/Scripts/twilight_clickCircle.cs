@@ -7,6 +7,7 @@ public class twilight_clickCircle : MonoBehaviour
 {
     // pass colors to shader for a two-color gradient
     public Material gradient;
+    public Color32 centerColor = new Color32(255, 255, 0, 1);
     public Color32 middleColor = new Color32(255, 157, 0, 1);
     public Color32 outerColor = new Color32(25, 53, 193, 1);
     // position of user click
@@ -16,8 +17,9 @@ public class twilight_clickCircle : MonoBehaviour
     void Start()
     {
         // set initial colors
-        gradient.SetColor("_Color0", middleColor);
-        gradient.SetColor("_Color1", outerColor);
+        gradient.SetColor("_Color0", centerColor);
+        gradient.SetColor("_Color1", middleColor);
+        gradient.SetColor("_Color2", outerColor);
     }
 
     // Update is called once per frame
@@ -29,8 +31,9 @@ public class twilight_clickCircle : MonoBehaviour
     void OnValidate()
     {
         // ensure any changes made during runtime are reflected
-        gradient.SetColor("_Color0", middleColor);
-        gradient.SetColor("_Color1", outerColor);
+        gradient.SetColor("_Color0", centerColor);
+        gradient.SetColor("_Color1", middleColor);
+        gradient.SetColor("_Color2", outerColor);
     }
 
     // called on click
@@ -56,7 +59,6 @@ public class twilight_clickCircle : MonoBehaviour
             clickPos.y = clickPos.y / (this.transform.localScale.x * this.transform.localScale.z * 2);
 
             // only change center if user clicked plane
-            Debug.Log(clickPos);
             gradient.SetVector("_Pos", clickPos);
         }
         
