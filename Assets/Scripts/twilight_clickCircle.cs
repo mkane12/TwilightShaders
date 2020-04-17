@@ -10,7 +10,7 @@ public class twilight_clickCircle : MonoBehaviour
     public Color32 middleColor = new Color32(255, 157, 0, 1);
     public Color32 outerColor = new Color32(25, 53, 193, 1);
     // position of user click
-    public Vector3 clickPos = new Vector3(0.5f, 0.5f, 0);
+    public Vector3 clickPos = new Vector4(0.5f, 0.5f, 0, 0);
 
     // Start is called before the first frame update
     void Start()
@@ -18,9 +18,6 @@ public class twilight_clickCircle : MonoBehaviour
         // set initial colors
         gradient.SetColor("_Color0", middleColor);
         gradient.SetColor("_Color1", outerColor);
-
-        // determine screen coordinates of plane object just once, since it's not moving
-        
     }
 
     // Update is called once per frame
@@ -44,13 +41,15 @@ public class twilight_clickCircle : MonoBehaviour
 
         if (Physics.Raycast (ray, out hit))
         {
-            Debug.Log(hit.point);
-            // This plane is scaled evenly on x and z axes, but in case it's not in the future
+            // This plane is scaled evenly on x and z axes, but in case it's not in the future, we standardize the code
+
+            // Trying to universalize variables, since plane was rotated, then camera rotated. 
+            // But localScale and raycasthits don't have the nice "forward"/"right" variables that GameObject transforms have...
 
             // screen coordinates range from (-25, -25) on lower left to (25, 25) on upper right.
             // We start by making it all positive
-            clickPos = new Vector3(hit.point.x + this.transform.localScale.x * this.transform.localScale.z, 
-                hit.point.y + this.transform.localScale.x * this.transform.localScale.z, 
+            clickPos = new Vector3(hit.point.x + this.transform.localScale.x * this.transform.localScale.y * this.transform.localScale.z, 
+                hit.point.z + this.transform.localScale.x * this.transform.localScale.y * this.transform.localScale.z, 
                 clickPos.z);
             // next, we need to scale so it ranges from (0, 0) to (1, 1), instead of (0, 0) to (50, 50)
             clickPos.x = clickPos.x / (this.transform.localScale.x * this.transform.localScale.z * 2);
